@@ -246,30 +246,7 @@ public class ConverterActivity extends AppCompatActivity {
     public void onBackPressed() {
         if(converterButton.getVisibility() == View.VISIBLE)
         {
-            convInput.setText("");
-            lper100.setVisibility(View.VISIBLE);
-            kmperl.setVisibility(View.VISIBLE);
-            ukmpg.setVisibility(View.VISIBLE);
-            usmpg.setVisibility(View.VISIBLE);
-            convinfo.setVisibility(View.VISIBLE);
-            chosenType.setText("");
-            chosenType.setVisibility(View.GONE);
-            convInput.setVisibility(View.GONE);
-            converterButton.setVisibility(View.GONE);
-            convText1.setText("");
-            convText1.setVisibility(View.GONE);
-            convNumb1.setText("");
-            convNumb1.setVisibility(View.GONE);
-            convText2.setText("");
-            convText2.setVisibility(View.GONE);
-            convNumb2.setText("");
-            convNumb2.setVisibility(View.GONE);
-            convText3.setText("");
-            convText3.setVisibility(View.GONE);
-            convNumb3.setText("");
-            convNumb3.setVisibility(View.GONE);
-            back.setVisibility(View.GONE);
-        }
+            backClick();}
         else{
             super.onBackPressed();
         }
