@@ -204,4 +204,30 @@ public class ConsumptionCalculator extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        if(calculate.getVisibility()==View.VISIBLE){
+            textView2.setVisibility(View.VISIBLE);
+            lper100.setVisibility(View.VISIBLE);
+            kmperl.setVisibility(View.VISIBLE);
+            ukmpg.setVisibility(View.VISIBLE);
+            usmpg.setVisibility(View.VISIBLE);
+            back.setVisibility(View.GONE);
+            constext.setVisibility(View.GONE);
+            fuelinput.setText("");
+            fuelinput.setVisibility(View.GONE);
+            distance.setVisibility(View.GONE);
+            distanceinput.setText("");
+            distanceinput.setVisibility(View.GONE);
+            calculate.setVisibility(View.GONE);
+            consoutput.setText("");
+            consoutput.setVisibility(View.GONE);
+            convtype.setText("");
+            convtype.setVisibility(View.GONE);
+        }
+        else{
+            super.onBackPressed();
+        }
+    }
 }

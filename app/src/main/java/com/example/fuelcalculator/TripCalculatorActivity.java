@@ -214,4 +214,35 @@ public class TripCalculatorActivity extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        if(tripCost.getVisibility() == View.VISIBLE){
+            tripConsText.setText("");
+            tripDistText.setText("");
+            fuelPriceText.setText("");
+            outputNumber.setText("");
+            tripConsInput.setText("");
+            tripDistInput.setText("");
+            fuelPriceInput.setText("");
+            tripinfo.setVisibility(View.VISIBLE);
+            lper100.setVisibility(View.VISIBLE);
+            kmperl.setVisibility(View.VISIBLE);
+            ukmpg.setVisibility(View.VISIBLE);
+            usmpg.setVisibility(View.VISIBLE);
+            back.setVisibility(View.GONE);
+            tripConsText.setVisibility(View.GONE);
+            tripConsInput.setVisibility(View.GONE);
+            tripDistText.setVisibility(View.GONE);
+            tripDistInput.setVisibility(View.GONE);
+            fuelPriceText.setVisibility(View.GONE);
+            fuelPriceInput.setVisibility(View.GONE);
+            tripCost.setVisibility(View.GONE);
+            outputText.setVisibility(View.GONE);
+            outputNumber.setVisibility(View.GONE);
+        }
+        else{
+            super.onBackPressed();
+        }
+    }
 }
