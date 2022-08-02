@@ -1,12 +1,15 @@
 package com.example.fuelcalculator;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class ConverterActivity extends AppCompatActivity {
     private Button lper100;
@@ -24,6 +27,7 @@ public class ConverterActivity extends AppCompatActivity {
     private TextView convNumb2;
     private TextView convText3;
     private TextView convNumb3;
+    private ConstraintLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,7 @@ public class ConverterActivity extends AppCompatActivity {
         convNumb2 = (TextView) findViewById(R.id.convNumb2);
         convText3 = (TextView) findViewById(R.id.convText3);
         convNumb3 = (TextView) findViewById(R.id.convNumb3);
+        layout = (ConstraintLayout) findViewById(R.id.convLayout);
         lper100.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -189,6 +194,8 @@ public class ConverterActivity extends AppCompatActivity {
         String fuel = convInput.getText().toString();
         double fueld = 0;
         double output;
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(layout.getWindowToken(), 0);
         if (!fuel.isEmpty()) {
             fueld = Double.parseDouble(fuel);
         }

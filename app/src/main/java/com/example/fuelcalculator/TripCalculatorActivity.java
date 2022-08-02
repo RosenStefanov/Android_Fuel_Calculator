@@ -1,12 +1,15 @@
 package com.example.fuelcalculator;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class TripCalculatorActivity extends AppCompatActivity {
     private Button lper100;
@@ -24,6 +27,7 @@ public class TripCalculatorActivity extends AppCompatActivity {
     private Button tripCost;
     private TextView outputText;
     private TextView outputNumber;
+    private ConstraintLayout triplayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,7 @@ public class TripCalculatorActivity extends AppCompatActivity {
         tripCost = (Button) findViewById(R.id.tripCost);
         outputText = (TextView) findViewById(R.id.tripCostText);
         outputNumber = (TextView) findViewById(R.id.tripCostOutput);
+        triplayout = (ConstraintLayout) findViewById(R.id.TripLayout);
 
         lper100.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -190,6 +195,8 @@ public class TripCalculatorActivity extends AppCompatActivity {
         double distanced = 0;
         double costd = 0;
         double output;
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(triplayout.getWindowToken(), 0);
         if (!fuel.isEmpty()) {
             fueld = Double.parseDouble(fuel);
         }

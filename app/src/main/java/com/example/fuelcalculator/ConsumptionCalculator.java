@@ -1,12 +1,15 @@
 package com.example.fuelcalculator;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class ConsumptionCalculator extends AppCompatActivity {
     private Button lper100;
@@ -22,6 +25,7 @@ public class ConsumptionCalculator extends AppCompatActivity {
     private Button calculate;
     private TextView consoutput;
     private TextView convtype;
+    private ConstraintLayout layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,7 @@ public class ConsumptionCalculator extends AppCompatActivity {
         calculate = (Button) findViewById(R.id.calculatebutton);
         consoutput = (TextView) findViewById(R.id.consoutput);
         convtype = (TextView) findViewById(R.id.convtype);
+        layout = (ConstraintLayout) findViewById(R.id.layout);
         lper100.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -173,6 +178,8 @@ public class ConsumptionCalculator extends AppCompatActivity {
         double fueld = 0;
         double distanced = 0;
         double output;
+        InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+        imm.hideSoftInputFromWindow(layout.getWindowToken(), 0);
         if (!fuel.isEmpty()) {
             fueld = Double.parseDouble(fuel);
         }
